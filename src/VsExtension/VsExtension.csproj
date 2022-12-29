@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.VSSDK.BuildTools.15.5.72\build\Microsoft.VSSDK.BuildTools.props" Condition="Exists('..\packages\Microsoft.VSSDK.BuildTools.15.5.72\build\Microsoft.VSSDK.BuildTools.props')" />
+  <Import Project="..\packages\Microsoft.VSSDK.BuildTools.16.8.3038\build\Microsoft.VSSDK.BuildTools.props" Condition="Exists('..\packages\Microsoft.VSSDK.BuildTools.16.8.3038\build\Microsoft.VSSDK.BuildTools.props')" />
   <Import Project="..\packages\Microsoft.Diagnostics.Tracing.TraceEvent.2.0.19\build\Microsoft.Diagnostics.Tracing.TraceEvent.props" Condition="Exists('..\packages\Microsoft.Diagnostics.Tracing.TraceEvent.2.0.19\build\Microsoft.Diagnostics.Tracing.TraceEvent.props')" />
   <PropertyGroup>
     <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
@@ -98,7 +98,6 @@
       <VSIXSubPath>JitHosts\NetCore</VSIXSubPath>
       <Link>JitHosts\NetCore\</Link>
     </Content>
-
     <Content Include="..\VsExtension.2017\bin\Debug\net46\VsExtension.2017.dll">
       <Link>VsExtension.2017.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -107,6 +106,12 @@
     </Content>
     <Content Include="..\VsExtension.2019\bin\Debug\net46\VsExtension.2019.dll">
       <Link>VsExtension.2019.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <VSIXSubPath>.</VSIXSubPath>
+    </Content>
+    <Content Include="..\VsExtension.2022\bin\Debug\net472\VsExtension.2022.dll">
+      <Link>VsExtension.2022.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
       <VSIXSubPath>.</VSIXSubPath>
@@ -129,7 +134,6 @@
       <VSIXSubPath>JitHosts\NetCore\runtimes\win\lib\netstandard2.0</VSIXSubPath>
       <Link>JitHosts\NetCore\runtimes\win\lib\netstandard2.0\</Link>
     </Content>
-
     <Content Include="..\VsExtension.2017\bin\Release\net46\VsExtension.2017.dll">
       <Link>VsExtension.2017.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -138,6 +142,12 @@
     </Content>
     <Content Include="..\VsExtension.2019\bin\Release\net46\VsExtension.2019.dll">
       <Link>VsExtension.2019.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <VSIXSubPath>.</VSIXSubPath>
+    </Content>
+    <Content Include="..\VsExtension.2022\bin\Release\net472\VsExtension.2022.dll">
+      <Link>VsExtension.2022.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
       <VSIXSubPath>.</VSIXSubPath>
@@ -498,6 +508,7 @@
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.VisualStudio.SDK.Analyzers.15.8.33\analyzers\cs\Microsoft.VisualStudio.SDK.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.VisualStudio.Threading.Analyzers.15.8.132\analyzers\cs\Microsoft.VisualStudio.Threading.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup />
@@ -510,13 +521,13 @@
     <Error Condition="!Exists('..\packages\Microsoft.Diagnostics.Tracing.TraceEvent.2.0.19\build\Microsoft.Diagnostics.Tracing.TraceEvent.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Diagnostics.Tracing.TraceEvent.2.0.19\build\Microsoft.Diagnostics.Tracing.TraceEvent.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.12\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.12\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.SDK.VsixSuppression.14.1.32\build\Microsoft.VisualStudio.SDK.VsixSuppression.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.SDK.VsixSuppression.14.1.32\build\Microsoft.VisualStudio.SDK.VsixSuppression.targets'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.VSSDK.BuildTools.15.5.72\build\Microsoft.VSSDK.BuildTools.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VSSDK.BuildTools.15.5.72\build\Microsoft.VSSDK.BuildTools.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.VSSDK.BuildTools.15.5.72\build\Microsoft.VSSDK.BuildTools.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VSSDK.BuildTools.15.5.72\build\Microsoft.VSSDK.BuildTools.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.Threading.Analyzers.15.8.132\build\Microsoft.VisualStudio.Threading.Analyzers.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.Threading.Analyzers.15.8.132\build\Microsoft.VisualStudio.Threading.Analyzers.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.SDK.Analyzers.15.8.33\build\Microsoft.VisualStudio.SDK.Analyzers.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.SDK.Analyzers.15.8.33\build\Microsoft.VisualStudio.SDK.Analyzers.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.VSSDK.BuildTools.16.8.3038\build\Microsoft.VSSDK.BuildTools.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VSSDK.BuildTools.16.8.3038\build\Microsoft.VSSDK.BuildTools.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.VSSDK.BuildTools.16.8.3038\build\Microsoft.VSSDK.BuildTools.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VSSDK.BuildTools.16.8.3038\build\Microsoft.VSSDK.BuildTools.targets'))" />
   </Target>
   <Import Project="..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.12\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.12\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets')" />
   <Import Project="..\packages\Microsoft.VisualStudio.SDK.VsixSuppression.14.1.32\build\Microsoft.VisualStudio.SDK.VsixSuppression.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.SDK.VsixSuppression.14.1.32\build\Microsoft.VisualStudio.SDK.VsixSuppression.targets')" />
-  <Import Project="..\packages\Microsoft.VSSDK.BuildTools.15.5.72\build\Microsoft.VSSDK.BuildTools.targets" Condition="Exists('..\packages\Microsoft.VSSDK.BuildTools.15.5.72\build\Microsoft.VSSDK.BuildTools.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
@@ -524,15 +535,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <Target Name="ValidateVsixParts" DependsOnTargets="$(ValidateVsixPartsDependsOn)">
-    <ItemGroup Condition=" '$(Configuration)' == 'Release' ">
-      <VSIXSourceItem Include="..\JitHost.Core.x64\bin\Release\netcoreapp2.1\publish\System.ServiceModel.dll">
-        <VSIXSubPath>JitHosts\NetCore\</VSIXSubPath>
-        <Link>JitHosts\NetCore\</Link>
-      </VSIXSourceItem>
-    </ItemGroup>
-    <ValidateVsixParts Condition="'$(BypassVsixValidation)' != 'true'" Manifest="$(IntermediateVsixManifest)" Files="@(VSIXSourceItem)">
-    </ValidateVsixParts>
-  </Target>
   <Import Project="..\packages\Microsoft.VisualStudio.Threading.Analyzers.15.8.132\build\Microsoft.VisualStudio.Threading.Analyzers.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.Threading.Analyzers.15.8.132\build\Microsoft.VisualStudio.Threading.Analyzers.targets')" />
+  <Import Project="..\packages\Microsoft.VisualStudio.SDK.Analyzers.15.8.33\build\Microsoft.VisualStudio.SDK.Analyzers.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.SDK.Analyzers.15.8.33\build\Microsoft.VisualStudio.SDK.Analyzers.targets')" />
+  <Import Project="..\packages\Microsoft.VSSDK.BuildTools.16.8.3038\build\Microsoft.VSSDK.BuildTools.targets" Condition="Exists('..\packages\Microsoft.VSSDK.BuildTools.16.8.3038\build\Microsoft.VSSDK.BuildTools.targets')" />
 </Project>
